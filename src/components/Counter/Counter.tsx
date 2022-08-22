@@ -1,6 +1,8 @@
+import CounterStyled from "./CounterStyled";
+
 const Counter = (): JSX.Element => {
   return (
-    <div className="counter">
+    <CounterStyled className="counter">
       <div className="counter__card">
         <span className="counter__digit">02</span>
         <span className="counter__data-time">days</span>
@@ -17,7 +19,7 @@ const Counter = (): JSX.Element => {
         <span className="counter__digit">09</span>
         <span className="counter__data-time">seconds</span>
       </div>
-    </div>
+    </CounterStyled>
   );
 };
 

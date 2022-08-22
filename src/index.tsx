@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import "@fontsource/roboto";
 import { store } from "./store/store";
 import App from "./App";
+import "@fontsource/oxanium";
 import "./index.css";
 
 const container = document.getElementById("root")!;
