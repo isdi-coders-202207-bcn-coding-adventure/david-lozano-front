@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const CounterStyled = styled.div`
-  background-color: #243342;
   display: flex;
   justify-content: center;
   gap: 2rem;
