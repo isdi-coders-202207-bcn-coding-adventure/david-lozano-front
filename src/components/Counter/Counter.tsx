@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import limitDate from "../../data/limitDate";
 import TimeCounter from "../../types/TimeCounter";
 import CounterStyled from "./CounterStyled";
@@ -13,19 +13,23 @@ const Counter = (): JSX.Element => {
 
   const [time, setTime] = useState(initialTime);
 
-  setInterval(() => {
-    const now = new Date().getTime();
-    const timeleft = limitDate - now;
+  useEffect(() => {
+    setInterval(() => {
+      const now = new Date().getTime();
+      const timeleft = limitDate - now;
 
-    const newTime = {
-      days: Math.floor(timeleft / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((timeleft % (1000 * 60)) / 1000),
-    };
+      const newTime = {
+        days: Math.floor(timeleft / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ),
+        minutes: Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((timeleft % (1000 * 60)) / 1000),
+      };
 
-    setTime(newTime);
-  }, 1000);
+      setTime(newTime);
+    }, 1000);
+  }, []);
 
   return (
     <CounterStyled className="counter">
